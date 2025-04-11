@@ -13,7 +13,7 @@ admin.initializeApp({
 });
 const db = admin.firestore();
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 let relayState = false;
 let motionDetected = false;
