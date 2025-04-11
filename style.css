@@ -1,0 +1,175 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+    overflow: hidden;
+  }
+  
+  .container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+  }
+  
+  .card {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    height: 90%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 50%;
+    user-select: none;
+  }
+  
+  #prev {
+    left: 10px;
+  }
+  
+  #next {
+    right: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  select {
+    padding: 6px;
+    margin: 10px;
+    font-size: 14px;
+  }
+  
+  .bulb {
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 20px;
+  }
+  
+  .bulb.on {
+    background-image: url('https://www.w3schools.com/js/pic_bulbon.gif');
+  }
+  
+  .bulb.off {
+    background-image: url('https://www.w3schools.com/js/pic_bulboff.gif');
+  }
+  
+  .progress-ring {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+  }
+  
+  .logs {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  /* Motion slide styles */
+  .motion-log-title {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .motion-log-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+    max-height: 120px;
+    overflow-y: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .motion-log-list li {
+    margin: 4px 0;
+    padding: 2px 10px;
+  }
+  
+  .motion-detected {
+    color: green;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .motion-none {
+    color: #999;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 600px) {
+    .card h2 {
+      font-size: 20px;
+    }
+  
+    .progress-ring {
+      width: 100px;
+      height: 100px;
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  
+    select {
+      font-size: 12px;
+      padding: 4px;
+    }
+  
+    .logs {
+      font-size: 14px;
+    }
+  
+    .motion-log-list {
+      font-size: 12px;
+      max-height: 100px;
+    }
+  
+    .motion-detected, .motion-none {
+      font-size: 16px;
+    }
+  }
+  

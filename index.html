@@ -1,0 +1,68 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Motion Light</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="slider" id="slider">
+      <!-- Slide 1 -->
+      <div class="card">
+        <h2>Bulb Control</h2>
+        <div id="relay-status">Loading...</div>
+        <div id="bulb" class="bulb off"></div>
+        <button onclick="toggleRelay()">Toggle Bulb</button>
+        <div class="logs" id="timer-log"></div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="card">
+        <h2>Timer</h2>
+        <svg class="progress-ring" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="54" stroke="#ddd" stroke-width="12" fill="none"/>
+          <circle id="progress-ring-circle" cx="60" cy="60" r="54" stroke="#4CAF50" stroke-width="12" fill="none" stroke-dasharray="339.292" stroke-dashoffset="339.292" transform="rotate(-90 60 60)" />
+        </svg>
+        <div class="timer-options">
+          <select id="timerSelect">
+            <option value="">Select time</option>
+            <option value="1">1 min</option>
+            <option value="2">2 min</option>
+            <option value="5">5 min</option>
+          </select>
+          <select id="timerAction">
+            <option value="off">Turn Off</option>
+            <option value="on">Turn On</option>
+          </select>
+        </div>
+        <button onclick="setTimer()">Set Timer</button>
+        <button onclick="cancelTimer()">Cancel Timer</button>
+      </div>
+
+      <!-- Slide 3 -->
+      <!-- Slide 3 -->
+<div class="card">
+  <h2>Motion Status</h2>
+  <div id="motion-status" class="motion-none">Detecting...</div>
+  <div class="motion-log-title">Last 10 Motions</div>
+  <ul id="motion-log-list" class="motion-log-list"></ul>
+</div>
+
+
+      <!-- Slide 4 -->
+      <div class="card">
+        <h2>Usage Statistics</h2>
+        <div id="total-usage-today">Loading ON time...</div>
+        <div id="energy-consumed">Loading energy...</div>
+        <div id="estimated-cost">Loading cost...</div>
+      </div>
+    </div>
+    <div class="nav" id="prev" onclick="navigate(-1)">&#8592;</div>
+    <div class="nav" id="next" onclick="navigate(1)">&#8594;</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
