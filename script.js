@@ -6,7 +6,7 @@ ring.style.strokeDashoffset = ringLength;
 let timerLog = document.getElementById('timer-log');
 let currentAction = null;
 
-const socket = new WebSocket(`ws://${location.host}`);
+const socket = new WebSocket(`wss://${location.host}`);
 
 
 socket.onmessage = (event) => {
