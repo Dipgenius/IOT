@@ -85,16 +85,7 @@ function updateProgressRing(duration, endTime) {
   update();
 }
 
-function fetchAndUpdateUsage() {
-  fetch('/usageStats')
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById('total-usage-today').textContent = `Total Bulb ON Time (Today): ${data.totalUsageToday} hrs`;
-      document.getElementById('energy-consumed').textContent = `Energy Consumed: ${data.energyConsumed} kWh`;
-      // Billing display removed
-    })
-    .catch(err => console.error('Error fetching usage stats:', err));
-}
+
 
 setInterval(fetchAndUpdateUsage, 30000);
 window.addEventListener('load', fetchAndUpdateUsage);
