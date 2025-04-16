@@ -84,7 +84,9 @@ function updateProgressRing(duration, endTime) {
   };
   update();
 }
+function fetchAndUpdateUsage() {
 
+}
 
 
 setInterval(fetchAndUpdateUsage, 30000);
