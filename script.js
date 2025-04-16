@@ -8,7 +8,6 @@ let currentAction = null;
 
 const socket = new WebSocket(`wss://${location.host}`);
 
-
 socket.onmessage = (event) => {
   const data = JSON.parse(event.data);
 
@@ -49,13 +48,12 @@ socket.onmessage = (event) => {
   if (data.type === 'usage') {
     document.getElementById('total-usage-today').textContent = `Total Bulb ON Time (Today): ${data.totalUsageToday} hrs`;
     document.getElementById('energy-consumed').textContent = `Energy Consumed: ${data.energyConsumed} kWh`;
-    document.getElementById('estimated-cost').textContent = `Estimated Cost (Today): ₹${data.totalCost}`;
+    // Billing line removed
   }
 };
 
 function toggleRelay() {
-    fetch('relay/toggle');
-
+  fetch('relay/toggle');
 }
 
 function setTimer() {
@@ -86,14 +84,13 @@ function updateProgressRing(duration, endTime) {
   update();
 }
 
-// Fetch usage stats every 30s
 function fetchAndUpdateUsage() {
   fetch('/usageStats')
     .then(res => res.json())
     .then(data => {
       document.getElementById('total-usage-today').textContent = `Total Bulb ON Time (Today): ${data.totalUsageToday} hrs`;
       document.getElementById('energy-consumed').textContent = `Energy Consumed: ${data.energyConsumed} kWh`;
-      document.getElementById('estimated-cost').textContent = `Estimated Cost (Today): ₹${data.totalCost}`;
+      // Billing display removed
     })
     .catch(err => console.error('Error fetching usage stats:', err));
 }
