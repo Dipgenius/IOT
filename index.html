@@ -1,4 +1,3 @@
-<!-- public/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,7 @@
 <body>
   <div class="container">
     <div class="slider" id="slider">
-      <!-- Slide 1 -->
+      <!-- Slide 1: Bulb Control -->
       <div class="card">
         <h2>Bulb Control</h2>
         <div id="relay-status">Loading...</div>
@@ -19,7 +18,7 @@
         <div class="logs" id="timer-log"></div>
       </div>
 
-      <!-- Slide 2 -->
+      <!-- Slide 2: Timer -->
       <div class="card">
         <h2>Timer</h2>
         <svg class="progress-ring" viewBox="0 0 120 120">
@@ -42,22 +41,19 @@
         <button onclick="cancelTimer()">Cancel Timer</button>
       </div>
 
-      <!-- Slide 3 -->
-      <!-- Slide 3 -->
-<div class="card">
-  <h2>Motion Status</h2>
-  <div id="motion-status" class="motion-none">Detecting...</div>
-  <div class="motion-log-title">Last 10 Motions</div>
-  <ul id="motion-log-list" class="motion-log-list"></ul>
-</div>
+      <!-- Slide 3: Motion Status -->
+      <div class="card">
+        <h2>Motion Status</h2>
+        <div id="motion-status" class="motion-none">Detecting...</div>
+        <div class="motion-log-title">Last 10 Motions</div>
+        <ul id="motion-log-list" class="motion-log-list"></ul>
+      </div>
 
-
-      <!-- Slide 4 -->
+      <!-- Slide 4: Usage Statistics -->
       <div class="card">
         <h2>Usage Statistics</h2>
         <div id="total-usage-today">Loading ON time...</div>
         <div id="energy-consumed">Loading energy...</div>
-        <div id="estimated-cost">Loading cost...</div>
       </div>
     </div>
     <div class="nav" id="prev" onclick="navigate(-1)">&#8592;</div>
