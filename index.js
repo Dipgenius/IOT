@@ -24,19 +24,6 @@ let lastToggleTime = null;
 
 const todayKey = () => new Date().toISOString().split('T')[0];
 
-function calculateCost(kWh) {
-  const units = kWh * 1000;
-  let cost = 0;
-  if (units <= 102) {
-    cost = units * 3.68;
-  } else if (units <= 192) {
-    cost = (102 * 3.68) + ((units - 102) * 4.10);
-  } else {
-    cost = (102 * 3.68) + (90 * 4.10) + ((units - 192) * 5.0);
-  }
-  return cost;
-}
-
 async function logUsage(durationMs) {
   const date = todayKey();
   const docRef = db.collection('usageLogs').doc(date);
@@ -117,8 +104,8 @@ app.get('/cancelTimer', (req, res) => {
   res.sendStatus(200);
 });
 
+// Updated usage stats route without cost
 app.get('/usageStats', async (req, res) => {
-  const today = todayKey();
   const snapshot = await db.collection('usageLogs').get();
   let totalUsageToday = 0;
 
@@ -129,14 +116,13 @@ app.get('/usageStats', async (req, res) => {
 
   const totalHours = totalUsageToday / 3600000;
   const energy = (totalHours * 9) / 1000;
-  const cost = calculateCost(energy);
 
-  console.log(`[USAGE STATS] Total hours: ${totalHours}, kWh: ${energy}, Cost: ₹${cost}`);
+  console.log(`[USAGE STATS] Total hours: ${totalHours}, kWh: ${energy}`);
 
   res.json({
     totalUsageToday: totalHours.toFixed(2),
-    energyConsumed: energy.toFixed(3),
-    totalCost: cost.toFixed(2)
+    energyConsumed: energy.toFixed(3)
+    // Removed totalCost
   });
 });
 
@@ -147,6 +133,7 @@ function broadcast(data) {
   });
 }
 
+// Fake motion simulation
 setInterval(() => {
   motionDetected = Math.random() > 0.5;
   broadcast({ type: 'motion', detected: motionDetected });
