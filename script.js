@@ -1,3 +1,4 @@
+//script.js
 let slideIndex = 0;
 let ring = document.getElementById('progress-ring-circle');
 let ringLength = 2 * Math.PI * 54;
